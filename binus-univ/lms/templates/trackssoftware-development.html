@@ -9,7 +9,7 @@ from openedx.core.djangolib.markup import HTML, Text
 %>
 
  <main id="main" aria-label="Content" tabindex="-1">
-<div class="filler" style="background-image: url(https://i.imgur.com/1Svyuyi.png); position: fixed; height: 100%; width: 100%; background-size: contain; background-repeat: no-repeat; top: 16em; opacity: 0.3;"></div>
+<div class="hidden-xs filler"></div>
     <section class="home">
 <div class="cover" style="position: relative;background: url(https://i.imgur.com/G0P0yAJ.jpg);background-size: cover;background-position-y: 19em; background-position-x: 9em;padding-bottom:2em; position:relative;">
         <div class="track-container container-cover" style="padding-top:3%;">
@@ -17,6 +17,7 @@ from openedx.core.djangolib.markup import HTML, Text
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb" style="background-color: transparent;!important; margin-bottom: 0;">
     <li class="breadcrumb-item"><a href="../../">Home</a></li>
+    <li class="breadcrumb-item"><a href="../all">Tracks</a></li>
     <li class="breadcrumb-item active" aria-current="page">Software Development</li>
   </ol>
 </nav>
@@ -29,7 +30,37 @@ from openedx.core.djangolib.markup import HTML, Text
         </div>
         </div>
 </div>	
-	<div class="container">
+<div class="track-banner">
+        <div style="background:#009FD9;" class="banner">
+            <div class="track-container banner-container row">
+                <div class="">
+                <h2>Professional Program: Entry Level Software Development Track</h2>
+                </div>
+                <div class="info-box col-md-12">
+                    <div class="banner-info">
+                            <div class="number"><h3>13</h3></div>
+                            <div class="description"><h3>Required Courses</h3></div>
+                    </div>
+                    <div class="hidden-xs separator">
+
+                    </div>
+                    <div class="banner-info">
+                            <div class="number"><h3>8 - 16</h3></div>
+                            <div class="description"><h3>Hours Per Course</h3></div>
+                    </div>
+                    <div class="hidden-xs separator">
+
+                    </div>
+                    <div class="banner-info">
+                            <div class="number"><h3>11</h3></div>
+                            <div class="description"><h3>Skills to Learn</h3></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+	<div class="courses-list-container">
         <%include file="courses_list7.html" />
 	</div>
     </section>

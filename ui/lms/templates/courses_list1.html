@@ -1,20 +1,33 @@
 <%page expression_filter="h"/>
 <%namespace name='static' file='static_content.html'/>
 <%! from django.utils.translation import ugettext as _ %>
-
+<section class="technologies-container">
+        <div class="technologies">
+                <h2>Technologies you will be Using/Learning</h2>
+                <p class="tech-tip"><i>Click on any of the technologies below to see other related courses</i></p>
+		<div style="border-bottom: 2px solid; padding-bottom: 1em;" class="technologies-listing">
+                        %for tech in courses[1][1]:
+                        <a href="../../courses?search_tech=${tech}">
+			<div class="technology hvr-float">
+				${tech}	
+			</div>
+                        </a>
+			%endfor
+                </div>
+        </div>
+</section>
 <section class="courses-container">
     % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-      <section class="courses">
+<section class="courses">
       <div style="background-color: white; width: 100%; display: block; overflow: hidden; padding: .5%; position:relative;">
-<h1 style="color: #A7B858; font-weight: 600; margin-top: 1%;">Professional Program: Data Science Track</h1>
-      <ul class="courses-listing">
+<!--<h1 style="color: #A7B858; font-weight: 600; margin-top: 1%;">Professional Program: Data Science Track</h1>-->
+      <ul style="padding-top:1%;" class="courses-listing">
           ## limiting the course number by using HOMEPAGE_COURSE_MAX as the maximum number of courses
-          %for course in courses[1][:settings.HOMEPAGE_COURSE_MAX]:
-  <li class="courses-listing-item">
+          %for course in courses[1][0][:settings.HOMEPAGE_COURSE_MAX]:
+  	  <li class="courses-listing-item">
               <%include file="course1.html" args="course=course" />
-
           </li>
-       %endfor
+       	  %endfor	  
       </ul>
 </div>
       </section>
