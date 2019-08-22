@@ -25,7 +25,51 @@ from pipeline_mako import render_require_js_path_overrides
 <!--[if !IE]><!--><html lang="${LANGUAGE_CODE}"><!--<![endif]-->
 <head dir="${static.dir_rtl()}">
 
+<!--
+<script>
+function formDataToSearchParams(formData){
+        var data = new URLSearchParams();
+    for (const pair of formData) {
+        data.append(pair[0], pair[1]);
+    }
+    return data;
+}
 
+if (document.location.toString().includes("access_token")){
+var token = document.location.toString().split('=')[1].split('&')[0];
+   fetch("https://mytest.cloudswyft.com/oauth2/login/",{
+     method: 'post',
+     headers: { "Authorization": "Bearer " + token }
+   })
+  .then((response) => {
+    if(!response.ok) throw new Error(response.status);
+  })
+  .then((responseJSON) => {
+   if (!document.location.toString().includes("course_id"))
+      window.location.href = "https://mytest.cloudswyft.com/login";
+   else
+      window.location.href = "https://mytest.cloudswyft.com/login?course_id=" + document.location.toString().split('=')[2] +"&enrollment_action=enroll";
+   fetch("https://mytest.cloudswyft.com/login?course_id=" + document.location.toString().split('=')[2] +"&enrollment_action=enroll",{
+     method: 'get',
+   })
+  .then((response) => {
+    if(!response.ok) throw new Error(response.status);
+  })
+  .then((responseJSON) => {
+  
+  })
+  .catch((error) => {
+    var errCode = error.toString().split(':')[1];
+    //alert(errCode);
+  });
+ })
+}
+else if (document.location.toString().includes("login") && !document.location.toString().includes("access_token")){
+    window.location.href = 'https://www.myskillsfuture.sg/content/portal/en/index.html';
+}
+
+</script>
+-->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -180,5 +224,12 @@ from pipeline_mako import render_require_js_path_overrides
       });
     }
   }());
+
+   var viewMode = getCookie("view-mode");
+   if(viewMode == "desktop"){
+        viewport.setAttribute('content', 'width=1024');
+   }else if (viewMode == "mobile"){
+        viewport.setAttribute('content', 'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
+   }
 </script>
 % endif

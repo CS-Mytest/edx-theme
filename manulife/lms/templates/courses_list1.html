@@ -1,7 +1,7 @@
 <%page expression_filter="h"/>
 <%namespace name='static' file='static_content.html'/>
 <%! from django.utils.translation import ugettext as _ %>
-<section class="technologies-container">
+<!--<section class="technologies-container">
         <div class="technologies">
                 <h2>Technologies you will be Using/Learning</h2>
                 <p class="tech-tip"><i>Click on any of the technologies below to see other related courses</i></p>
@@ -15,7 +15,7 @@
 			%endfor
                 </div>
         </div>
-</section>
+</section> -->
 <section class="courses-container">
     % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
 <section class="courses">
@@ -24,9 +24,9 @@
       <ul style="padding-top:1%;" class="courses-listing">
           ## limiting the course number by using HOMEPAGE_COURSE_MAX as the maximum number of courses
           %for course in courses[1][0][:settings.HOMEPAGE_COURSE_MAX]:
-  	  <li class="courses-listing-item">
-              <%include file="course1.html" args="course=course" />
-          </li>
+  	  <li class="courses-listing-item">              
+		<%include file="course1.html" args="course=course" />
+	  </li>
        	  %endfor	  
       </ul>
 </div>

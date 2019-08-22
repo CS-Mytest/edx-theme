@@ -73,32 +73,6 @@ from openedx.core.djangolib.markup import HTML, Text
         <%include file="track_list.html" />
         </div>     
 
-<!-- <div id="modal" class="hidden-xs modal home-page-video-modal video-modal" style="position:fixed; top:25%;left: 29%;">
-	<div class="modal-header">
-    		<button id="close" type="button" style="float:right; margin-bottom: 1%" class="close full-height" data-dismiss="modal" aria-hidden="true">X</button>
-	<div class="inner-wrapper">
-        	<iframe width="640" height="360" src="https://www.youtube.com/embed/RTtfa_6EgpY?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  	</div>
-</div> -->
-   </section>
-</main>
-
-
-<!--<script type="text/javascript">
-$(document).ready(function() {
-    $("#modal").delay(2000).fadeIn(500);
-});
-
-
-var button = document.getElementById('close');
-
-button.onclick = function() {
-    var div = document.getElementById('modal');
-    div.style.display = 'none';
-    div.parentNode.removeChild(div);
-};
-</script> -->
-
 <%block name="js_extra">
    <script type="text/javascript">
       $(window).load(function() {

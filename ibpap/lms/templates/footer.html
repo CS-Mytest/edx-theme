@@ -14,9 +14,9 @@
  <footer id="footer-openedx">
     <div class="colophon" style="width:auto">
       <nav class="nav-colophon">
-	<ol>
+        <ol>
 			<li>
-				©  2018 CloudSwyft is the Pioneer Open edX and Cloud Labs Provider in Asia
+				&copy; ${_(' {year} CloudSwyft is the Pioneer Open edX and Cloud Labs Provider in Asia').format( year=date.today().year)}
 			</li>
 			<li><a href="https://cloudswyft.com" target="_blank" data-mscc-ic="false">Privacy & Cookies</a></li>
 			<li><a href="${reverse('tos')}" target="_blank" data-mscc-ic="false">Terms of Service</a></li>
@@ -31,7 +31,6 @@
    </div>
   </footer>
 </div>
-
 % if include_dependencies:
   <%static:js group='base_vendor'/>
   <%static:css group='style-vendor'/>
